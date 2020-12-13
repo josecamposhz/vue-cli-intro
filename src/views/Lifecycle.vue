@@ -2,11 +2,15 @@
   <section>
     <h1>Ciclo de Vida - Instancia Vue</h1>
     <h3 v-for="step in steps" :key="step">{{ step }}</h3>
-    <button @click="destruir()">Destruir Instancia</button>
-    <hr />
+    <v-btn @click="destruir()">Destruir Instancia</v-btn>
+    <hr class="my-4" />
     <h3>Counter: {{ counter }}</h3>
-    <button @click="counter--">-</button>
-    <button @click="counter++">+</button>
+    <v-btn icon @click="counter--">
+      <v-icon>mdi-minus</v-icon>
+    </v-btn>
+    <v-btn icon @click="counter++">
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
     <div v-html="innnerHTMLCounter"></div>
   </section>
 </template>

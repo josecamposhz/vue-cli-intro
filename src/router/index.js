@@ -22,6 +22,11 @@ const routes = [
     path: '/lifecycle',
     name: 'Lifecycle',
     component: () => import('../views/Lifecycle')
+  },
+  {
+    path: '/tasks',
+    name: 'Task',
+    component: () => import('../views/Task')
   }
 ]
 
