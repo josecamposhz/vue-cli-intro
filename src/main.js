@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify';
 
+// Globally register all `_base`-prefixed components
+import './plugins/_globals'
+
 Vue.config.productionTip = false
 
 new Vue({

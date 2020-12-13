@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app color="primary" dark>
-    <div class="d-flex align-center">
+    <router-link class="d-flex align-center" to="/">
       <v-img
         alt="Vuetify Logo"
         class="shrink mr-2"
@@ -18,10 +18,10 @@
         src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
         width="100"
       />
-    </div>
+    </router-link>
 
     <v-spacer></v-spacer>
-    
+
     <v-btn to="/tasks" text>Tasks </v-btn>
     <v-btn to="/lifecycle" text>Lifecycle </v-btn>
   </v-app-bar>
