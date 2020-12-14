@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+// import Task from '../views/Task.vue'
+// import Lifecycle from '../views/Lifecycle.vue'
 
 Vue.use(VueRouter)
 
@@ -13,12 +15,14 @@ const routes = [
   {
     path: '/lifecycle',
     name: 'Lifecycle',
-    component: () => import('../views/Lifecycle')
+    // component: Lifecycle,
+    component: () => import(/* webpackChunkName: "lifecycle" */'../views/Lifecycle')
   },
   {
     path: '/tasks',
     name: 'Task',
-    component: () => import('../views/Task')
+    // component: Task,
+    component: () => import(/* webpackChunkName: "tasks" */'../views/Task')
   },
   {
     path: '/countries',
@@ -26,6 +30,7 @@ const routes = [
     // Alias
     alias: '/paises',
     component: () => import('../views/Countries')
+    // component: () => import(/* webpackChunkName: "countries" */ '../views/Countries')
   },
   {
     path: '/countries/:name',
