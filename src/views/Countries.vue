@@ -8,40 +8,26 @@
         single-line
       />
     </v-layout>
-    <v-layout v-if="isLoading" md12 class="justify-center my-8">
-      <v-progress-circular :size="70" :width="7" color="purple" indeterminate />
-    </v-layout>
+    <Loader :isLoading="isLoading" />
     <v-layout wrap md12>
       <v-flex
         v-for="(country, index) in countriesFilter"
         :key="index"
         :search="search"
-        class="mb-5"
-        min-width="300px"
+        @click="openCountry(country.name)"
         md3
         sm4
         xs12
         px-2
       >
-        <v-card>
-          <v-img class="white--text" height="180px" v-bind:src="country.flag">
-            <v-card-title>{{ country.name }} </v-card-title>
-          </v-img>
-          <v-card-text>
-            <div class="subtitle-1">Continente: {{ country.region }}</div>
-            <div class="subtitle-1">Capital: {{ country.capital }}</div>
-            <div class="subtitle-1">
-              Población: {{ populationFormat(country.population) }}
-            </div>
-          </v-card-text>
-        </v-card>
+        <CountryCard :country="country" />
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import restCountries from "@/services/api.service";
+import ApiService from "@/services/api.service";
 export default {
   data() {
     return {
@@ -64,8 +50,8 @@ export default {
   },
   methods: {
     getCountries() {
-      restCountries
-        .get()
+      ApiService
+        .getAllCountries()
         .then((response) => {
           this.isLoading = false;
           this.countries = response.data;
@@ -74,10 +60,11 @@ export default {
           console.log(error);
         });
     },
-    populationFormat(population) {
-        // Expresión regular utilizada para agregar un punto cada 3 números
-      return population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    },
+    openCountry(name) {
+      // this.$router.push(`/countries/${name}`);
+      // this.$router.push({ path: `/countries/${name}` })
+      this.$router.push({ name: 'Country', params: { name } })
+    }
   },
 };
 </script>
