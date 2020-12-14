@@ -23,6 +23,7 @@
     <v-spacer></v-spacer>
 
     <v-btn to="/tasks" text>Tasks </v-btn>
+    <v-btn to="/countries" text>Paises </v-btn>
     <v-btn to="/lifecycle" text>Lifecycle </v-btn>
   </v-app-bar>
 </template>

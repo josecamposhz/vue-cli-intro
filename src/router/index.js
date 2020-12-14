@@ -21,6 +21,11 @@ const routes = [
     component: () => import('../views/Task')
   },
   {
+    path: '/countries',
+    name: 'Paises',
+    component: () => import('../views/Countries')
+  },
+  {
     path: '*',
     component: () => import('../views/404')
   }
