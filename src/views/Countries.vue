@@ -28,6 +28,7 @@
 
 <script>
 import ApiService from "@/services/api.service";
+import Country from '@/models/Country.js';
 export default {
   data() {
     return {
@@ -54,7 +55,10 @@ export default {
         .getAllCountries()
         .then((response) => {
           this.isLoading = false;
-          this.countries = response.data;
+          // this.countries = response.data;
+          console.log(response.data);
+          this.countries = response.data.map(country => new Country(country));
+          console.log(this.countries);
         })
         .catch(function (error) {
           console.log(error);

@@ -18,11 +18,13 @@
 </template>
 
 <script>
+import Country from '@/models/Country.js'
 export default {
   props: {
     country: {
       type: Object,
       required: true,
+      default: new Country()
     },
   },
   methods: {
